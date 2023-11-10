@@ -1,11 +1,14 @@
-// Antecedentes.js
 import React, { useState } from 'react';
 
-function Antecedentes() {
+function Antecedentes({ onGuardarAntecedente }) {
   const [informacionAdicional, setInformacionAdicional] = useState('');
 
   const handleChange = (e) => {
     setInformacionAdicional(e.target.value);
+  };
+
+  const guardarAntecedente = () => {
+    onGuardarAntecedente(informacionAdicional);
   };
 
   return (
@@ -19,7 +22,7 @@ function Antecedentes() {
         onChange={handleChange}
         placeholder="Escribe información adicional aquí"
       />
-      {/* Agrega más información y campos si es necesario */}
+      <button onClick={guardarAntecedente}>Guardar Antecedentes</button>
     </div>
   );
 }
