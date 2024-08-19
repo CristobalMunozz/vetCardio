@@ -14,7 +14,7 @@ function Antecedentes({ onGuardarAntecedente }) {
   return (
     <div>
       <h2>2. ANTECEDENTES:</h2>
-      <p>Se realiza la toma de presion en un ambiente tranquilo...</p>
+
       <textarea
         rows="4"
         cols="50"

@@ -1,0 +1,13 @@
+  /* Footer.css */
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1; /* Puedes cambiar el color de fondo según tus necesidades */
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #ddd; /* Línea superior opcional */
+    font-size: 12px;
+    color: #333;
+  }

@@ -29,8 +29,8 @@ function InformacionPaciente({ onGuardarInformacion }) {
     <div>
       <h2>1. INFORMACION DEL PACIENTE:</h2>
       <fieldset>
-        <legend>PACIENTE</legend>
-        <label>PACIENTE:</label>
+        
+        <label>NOMBRE PACIENTE:</label>
         <input
           type="text"
           name="paciente"
@@ -39,7 +39,7 @@ function InformacionPaciente({ onGuardarInformacion }) {
         />
         <label>FECHA DE MEDICIÓN:</label>
         <input
-          type="text"
+          type="date"
           name="fechaMedicion"
           value={formData.fechaMedicion}
           onChange={handleChange}
@@ -47,7 +47,7 @@ function InformacionPaciente({ onGuardarInformacion }) {
       </fieldset>
 
       <fieldset>
-        <legend>ESPECIE Y RAZA</legend>
+        
         <label>ESPECIE:</label>
         <input
           type="text"
@@ -65,7 +65,7 @@ function InformacionPaciente({ onGuardarInformacion }) {
       </fieldset>
 
       <fieldset>
-        <legend>COLOR Y SEXO</legend>
+        
         <label>COLOR:</label>
         <input
           type="text"
@@ -83,7 +83,7 @@ function InformacionPaciente({ onGuardarInformacion }) {
       </fieldset>
 
       <fieldset>
-        <legend>EDAD Y TIPO DE ATENCIÓN</legend>
+      
         <label>EDAD:</label>
         <input
           type="text"
@@ -101,7 +101,7 @@ function InformacionPaciente({ onGuardarInformacion }) {
       </fieldset>
 
       <fieldset>
-        <legend>TUTOR</legend>
+       
         <label>TUTOR:</label>
         <input
           type="text"

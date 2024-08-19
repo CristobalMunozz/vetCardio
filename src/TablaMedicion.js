@@ -35,6 +35,7 @@ function TablaMedicion({ onGuardarTablaMedicion }) {
         <thead>
           <tr>
             <th></th>
+
             <th>PAS</th>
             <th>PAD</th>
             <th>PAM</th>
@@ -45,6 +46,8 @@ function TablaMedicion({ onGuardarTablaMedicion }) {
   {mediciones.map((medida, index) => (
     <tr key={index}>
       <td>{index + 1}.</td>
+
+
       <td>
         <input
           type="number"
@@ -76,7 +79,8 @@ function TablaMedicion({ onGuardarTablaMedicion }) {
     </tr>
   ))}
   <tr>
-    <td>PROMEDIO</td>
+    <td>PROMEDIO </td>
+
     <td>{calcularPromedio('pas')}</td>
     <td>{calcularPromedio('pad')}</td>
     <td>{calcularPromedio('pam')}</td>
