@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
+
 const ChartComponent = ({ data }) => {
   const canvasRef = useRef(null);
   const chartRef = useRef(null);
@@ -42,7 +43,7 @@ const ChartComponent = ({ data }) => {
     };
   }, [data]); // Dependencia en 'data' para actualizar el gráfico cuando cambien los datos
 
-  return <canvas ref={canvasRef} width="400" height="300" />;
+  return <canvas ref={canvasRef} width="400" height="200" />;
 };
 
 export default ChartComponent;
