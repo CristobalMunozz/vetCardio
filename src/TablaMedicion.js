@@ -18,12 +18,21 @@ const TablaMedicion = ({ onGuardarTablaMedicion }) => {
     setMediciones(newMediciones);
     onGuardarTablaMedicion(newMediciones); // Llamar a la función para guardar los datos en Formulario
   };
-
+// calcular promedio de las columnas
   const calcularPromedio = (columna) => {
-    const valores = mediciones.map((medida) => Number(medida[columna]) || 0);
-    const promedio = valores.reduce((acc, curr) => acc + curr, 0) / valores.length;
+    // Filtramos los valores que son válidos, es decir, aquellos que no son 0 o NaN
+    const valores = mediciones
+      .map((medida) => Number(medida[columna]))  // Convertimos a número
+      .filter((valor) => !isNaN(valor) && valor !== 0); // Filtramos los valores inválidos (NaN o 0)
+  
+    const suma = valores.reduce((acc, curr) => acc + curr, 0);
+    
+    // Evitamos división por cero si no hay valores válidos
+    const promedio = valores.length > 0 ? suma / valores.length : 0;
+  
     return promedio.toFixed(1);
   };
+  
 
   return (
     <div className="container">

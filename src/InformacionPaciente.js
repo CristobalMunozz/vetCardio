@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Camera, CameraResultType } from "@capacitor/camera";
 
 function InformacionPaciente({ onGuardarInformacion }) {
   const [formData, setFormData] = useState({
@@ -12,8 +13,11 @@ function InformacionPaciente({ onGuardarInformacion }) {
     edad: "",
     tipoAtencion: "",
     tutor: "",
-    medicorequirente:"",
+    medicorequirente: "",
+    foto: "",
   });
+
+  const [foto, setFoto] = useState(null); // Guardar la foto capturada
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +25,34 @@ function InformacionPaciente({ onGuardarInformacion }) {
       ...formData,
       [name]: value,
     });
+  };
+
+  // Función para capturar la foto usando la cámara
+  const capturarFoto = async () => {
+    try {
+      const image = await Camera.getPhoto({
+        resultType: CameraResultType.Uri,
+        source: "camera",
+        quality: 90,
+      });
+      setFoto(image.webPath); // Guardar la ruta de la imagen
+      setFormData({ ...formData, foto: image.webPath }); // Guardar la foto en formData
+    } catch (error) {
+      console.error("Error al capturar la foto:", error);
+    }
+  };
+
+  // Función para seleccionar una imagen de la galería
+  const seleccionarFoto = async (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFoto(reader.result); // Actualizar la vista previa
+        setFormData({ ...formData, foto: reader.result }); // Guardar la foto en formData
+      };
+      reader.readAsDataURL(file); // Leer la imagen como URL de datos
+    }
   };
 
   const guardarInformacion = () => {
@@ -180,20 +212,40 @@ function InformacionPaciente({ onGuardarInformacion }) {
               />
             </div>
             <div className="mb-6">
-      <label htmlFor="medicorequirente" className="form-label">
-        Medico Veterinario requirente:
-      </label>
-      <input
-        type="text"
-        className="form-control"
-        id="medicorequirente"
-        name="medicorequirente"  // Asegúrate de que coincida con la clave en formData
-        value={formData.medicorequirente}
-        onChange={handleChange}
-      />
-    </div>
-            
+              <label htmlFor="medicorequirente" className="form-label">
+                Medico Veterinario requirente:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="medicorequirente"
+                name="medicorequirente" // Asegúrate de que coincida con la clave en formData
+                value={formData.medicorequirente}
+                onChange={handleChange}
+              />
+            </div>
           </fieldset>
+          <div className="col-md-6 text-center">
+          <button onClick={capturarFoto} className="btn btn-primary mb-3">Capturar Foto</button>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={seleccionarFoto}
+            className="mb-3"
+          />
+          {foto && (
+            <img
+              src={foto}
+              alt="Foto del paciente"
+              style={{
+                width: '150px',
+                height: '150px',
+                borderRadius: '50%', // Bordes circulares
+                objectFit: 'cover',
+              }}
+            />
+          )}
+        </div>
         </div>
       </div>
       <button onClick={guardarInformacion}>Guardar Información</button>
