@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/vetCardio/static/css/main.aff1ac99.css",
-    "main.js": "/vetCardio/static/js/main.97ea5d5b.js",
+    "main.js": "/vetCardio/static/js/main.6bccc243.js",
     "static/js/498.7b823c50.chunk.js": "/vetCardio/static/js/498.7b823c50.chunk.js",
     "static/js/703.3cbf44b3.chunk.js": "/vetCardio/static/js/703.3cbf44b3.chunk.js",
     "static/js/198.c72ae396.chunk.js": "/vetCardio/static/js/198.c72ae396.chunk.js",
     "index.html": "/vetCardio/index.html",
     "main.aff1ac99.css.map": "/vetCardio/static/css/main.aff1ac99.css.map",
-    "main.97ea5d5b.js.map": "/vetCardio/static/js/main.97ea5d5b.js.map",
+    "main.6bccc243.js.map": "/vetCardio/static/js/main.6bccc243.js.map",
     "498.7b823c50.chunk.js.map": "/vetCardio/static/js/498.7b823c50.chunk.js.map",
     "703.3cbf44b3.chunk.js.map": "/vetCardio/static/js/703.3cbf44b3.chunk.js.map",
     "198.c72ae396.chunk.js.map": "/vetCardio/static/js/198.c72ae396.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aff1ac99.css",
-    "static/js/main.97ea5d5b.js"
+    "static/js/main.6bccc243.js"
   ]
 }

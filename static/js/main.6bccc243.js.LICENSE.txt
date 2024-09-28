@@ -22,6 +22,8 @@
  * Released under the MIT License
  */
 
+/*! Capacitor: https://capacitorjs.com/ - MIT License */
+
 /**
  * @license
   Copyright (c) 2008, Adobe Systems Incorporated
